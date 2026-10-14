@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>K0 Sovereign Core - Mobile Dashboard</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-slate-950 text-slate-100 font-mono p-4">
+    <div class="max-w-md mx-auto space-y-4">
+        <!-- Header -->
+        <div class="border border-slate-800 bg-slate-900 p-4 rounded-xl shadow-lg">
+            <div class="flex justify-between items-center">
+                <h1 class="text-sm font-bold text-cyan-400">K0 MOBILE CORE</h1>
+                <span class="px-2 py-0.5 text-[10px] rounded-full bg-emerald-500/20 text-emerald-400 border border-emerald-500/30">ONLINE</span>
+            </div>
+            <p class="text-[10px] text-slate-400 mt-1">Node: K0-ANDROID-CLIENT | Cali, CO</p>
+        </div>
+
+        <!-- Grid de Métricas Móvil -->
+        <div class="grid grid-cols-2 gap-3">
+            <div class="border border-slate-800 bg-slate-900 p-3 rounded-xl">
+                <span class="text-[10px] text-slate-400">ESTADO</span>
+                <div id="sys-status" class="text-xs font-bold text-emerald-400 mt-1">OPERACIONAL</div>
+            </div>
+            <div class="border border-slate-800 bg-slate-900 p-3 rounded-xl">
+                <span class="text-[10px] text-slate-400">CIRCUIT BREAKER</span>
+                <div id="cb-status" class="text-xs font-bold text-cyan-400 mt-1">CLOSED</div>
+            </div>
+            <div class="border border-slate-800 bg-slate-900 p-3 rounded-xl">
+                <span class="text-[10px] text-slate-400">LATENCIA</span>
+                <div id="latency" class="text-xs font-bold text-purple-400 mt-1">12.4 ms</div>
+            </div>
+            <div class="border border-slate-800 bg-slate-900 p-3 rounded-xl">
+                <span class="text-[10px] text-slate-400">BLOQUES LEDGER</span>
+                <div id="ledger-count" class="text-xs font-bold text-amber-400 mt-1">104</div>
+            </div>
+        </div>
+
+        <!-- Terminal Log Móvil -->
+        <div class="border border-slate-800 bg-slate-900 p-4 rounded-xl">
+            <h2 class="text-xs font-bold text-slate-300 mb-2">📡 TELEMETRÍA EN VIVO</h2>
+            <div id="log-terminal" class="bg-black/80 border border-slate-800 p-3 rounded-lg h-48 overflow-y-auto text-[10px] space-y-1 text-emerald-400">
+                [K0-Mobile] Iniciando monitor móvil local...
+            </div>
+        </div>
+
+        <!-- Botones de Acción Táctica -->
+        <div class="grid grid-cols-2 gap-3">
+            <button onclick="triggerQuantScan()" class="bg-cyan-600 hover:bg-cyan-500 text-slate-950 font-bold py-2 px-3 rounded-xl text-xs transition">
+                Ejecutar Quant
+            </button>
+            <button onclick="triggerSecurityScan()" class="bg-emerald-600 hover:bg-emerald-500 text-slate-950 font-bold py-2 px-3 rounded-xl text-xs transition">
+                Validar Red
+            </button>
+        </div>
+    </div>
+
+    <script>
+        let ledgerBlocks = 104;
+        const logTerminal = document.getElementById("log-terminal");
+
+        function addLog(message) {
+            const timeStr = new Date().toLocaleTimeString();
+            const logLine = document.createElement("div");
+            logLine.textContent = `[${timeStr}] ${message}`;
+            logTerminal.appendChild(logLine);
+            logTerminal.scrollTop = logTerminal.scrollHeight;
+        }
+
+        // Bucle de telemetría simulada en tiempo real adaptado a móvil
+        setInterval(() => {
+            if (Math.random() > 0.7) ledgerBlocks++;
+            document.getElementById("ledger-count").textContent = ledgerBlocks;
+            document.getElementById("latency").textContent = (Math.random() * (16 - 11) + 11).toFixed(1) + " ms";
+        }, 2000);
+
+        function triggerQuantScan() {
+            addLog("📊 [Quant Engine] Análisis de confluencia RSI + MACD completado. Tendencia: BULLISH.");
+        }
+
+        function triggerSecurityScan() {
+            addLog("🛡️ [Security] Perímetro seguro verificado. Certificado SSL válido.");
+        }
+    </script>
+</body>
+</html>
+           <pre><code>-- Nota: Se han eliminado las directivas DELIMITER para que funcione vía Node.js
+CREATE PROCEDURE nombre_de_tu_bd.mejorar_tokens(
+    IN p_usuario_id INT,
+    IN p_cantidad INT
+)
+BEGIN
+    UPDATE nombre_de_tu_bd.usuarios
+    SET tokens = tokens + p_cantidad
+    WHERE id = p_usuario_id;
+END;
+
+GRANT EXECUTE ON PROCEDURE nombre_de_tu_bd.mejorar_tokens TO 'l4maravilla.9999@gmail.com'@'localhost';</code></pre>
+            <div class="output"></div>
+        </div>
+
+        <h2>5. Aplicar cambios y verificar</h2>
+        <div class="code-wrapper">
+            <pre><code>FLUSH PRIVILEGES;
+SHOW GRANTS FOR 'l4maravilla.9999@gmail.com'@'localhost';</code></pre>
+            <div class="output"></div>
+        </div>
+
+        <h2>6. Ejecución del script desde consola</h2>
+        <div class="code-wrapper">
+            <pre><code>mysql -u root -p &lt; permisos_gemini.sql</code></pre>
+            <div class="output"></div>
+        </div>
+
+        <div class="note">
+            <strong>Recomendaciones de seguridad:</strong>
+            <ul>
+                <li>Evita usar correos electrónicos como usuarios de MySQL; usa identificadores tipo <code>gemini_app</code>.</li>
+                <li>Aplica el principio de mínimo privilegio (solo otorga los permisos estrictamente necesarios).</li>
+                <li>No incluyas credenciales en repositorios ni código fuente; usa variables de entorno (<code>.env</code>).</li>
+            </ul>
+        </div>
+        <footer>Documentación técnica — Gestión de Permisos MySQL</footer>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const codeWrappers = document.querySelectorAll('.code-wrapper');
+            
+            codeWrappers.forEach(wrapper => {
+                const codeElement = wrapper.querySelector('code');
+                const outputDiv = wrapper.querySelector('.output');
+                const codeText = codeElement.innerText;
+
+                // --- Botón Copiar ---
+                const copyBtn = document.createElement('button');
+                copyBtn.className = 'btn copy-btn';
+                copyBtn.textContent = 'Copiar';
+                copyBtn.addEventListener('click', async () => {
+                    try {
+                        await navigator.clipboard.writeText(codeText);
+                        copyBtn.textContent = '¡Copiado!';
+                        copyBtn.classList.add('copied');
+                        setTimeout(() => {
+                            copyBtn.textContent = 'Copiar';
+                            copyBtn.classList.remove('copied');
+                        }, 2000);
+                    } catch (err) {
+                        console.error('Error al copiar: ', err);
+                    }
+                });
+
+                // --- Botón Ejecutar ---
+                const execBtn = document.createElement('button');
+                execBtn.className = 'btn exec-btn';
+                execBtn.textContent = 'Ejecutar';
+                execBtn.addEventListener('click', async () => {
+                    if (!confirm('¿Estás seguro de que deseas ejecutar este script en la base de datos?')) return;
+
+                    execBtn.disabled = true;
+                    execBtn.textContent = 'Ejecutando...';
+                    outputDiv.className = 'output';
+                    outputDiv.textContent = '';
+
+                    try {
+                        const response = await fetch('/api/ejecutar', {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify({ script: codeText })
+                        });
+
+                        const data = await response.json();
+
+                        if (data.success) {
+                            outputDiv.className = 'output success';
+                            outputDiv.textContent = '✅ ' + data.message;
+                            if (data.results && data.results.length > 0) {
+                                outputDiv.textContent += '\n' + JSON.stringify(data.results, null, 2);
+                            }
+                        } else {
+                            outputDiv.className = 'output error';
+                            outputDiv.textContent = '❌ Error: ' + data.error;
+                        }
+                    } catch (error) {
+                        outputDiv.className = 'output error';
+                        outputDiv.textContent = '❌ Error de conexión con el servidor.';
+                    } finally {
+                        execBtn.disabled = false;
+                        execBtn.textContent = 'Ejecutar';
+                    }
+                });
+
+                wrapper.appendChild(copyBtn);
+                wrapper.appendChild(execBtn);
+            });
+        });
+    </script>
+</body>
+</html>
